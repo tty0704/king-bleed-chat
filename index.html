@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Even Kings Bleed</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet">
     <style>
       body {
         margin: 0;
@@ -24,6 +24,10 @@
         width: 100%;
         max-width: 600px;
       }
+      .question-jp {
+        font-family: 'Noto Serif JP', serif;
+        color: #c00000;
+      }
       .input-box {
         margin-top: 1.5rem;
       }
@@ -41,12 +45,17 @@
         font-size: 1.4rem;
         color: #fff;
         line-height: 1.6;
+        opacity: 0;
+        transition: opacity 1.2s ease-in;
+      }
+      .visible {
+        opacity: 1;
       }
     </style>
   </head>
   <body>
     <div class="chat-box">
-      <h1 id="question">What does it mean to bleed like a king?</h1>
+      <h1 id="question" class="question-jp">What does it mean to bleed like a king?</h1>
       <div class="input-box">
         <input type="text" id="userInput" placeholder="Type your thoughts and press Enter" />
       </div>
@@ -74,6 +83,9 @@
       document.getElementById("question").textContent = lang === 'jp'
         ? "血を流す王に、問いかけてみろ。"
         : "What does it mean to bleed like a king?";
+      if (lang === 'jp') {
+        document.getElementById("question").classList.add("question-jp");
+      }
       document.getElementById("userInput").placeholder = lang === 'jp'
         ? "思いを入力してEnterを押してください"
         : "Type your thoughts and press Enter";
@@ -81,7 +93,12 @@
       document.getElementById("userInput").addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
           const reply = responses[lang][Math.floor(Math.random() * responses[lang].length)];
-          document.getElementById("response").textContent = reply;
+          const responseEl = document.getElementById("response");
+          responseEl.textContent = reply;
+          responseEl.classList.remove("visible");
+          // Trigger reflow
+          void responseEl.offsetWidth;
+          responseEl.classList.add("visible");
         }
       });
     </script>
