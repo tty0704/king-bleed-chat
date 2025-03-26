@@ -80,11 +80,14 @@
       };
 
       const lang = navigator.language.startsWith('ja') ? 'jp' : 'en';
-      document.getElementById("question").textContent = lang === 'jp'
+      const questionEl = document.getElementById("question");
+      const responseEl = document.getElementById("response");
+
+      questionEl.textContent = lang === 'jp'
         ? "血を流す王に、問いかけてみろ。"
         : "What does it mean to bleed like a king?";
       if (lang === 'jp') {
-        document.getElementById("question").classList.add("question-jp");
+        questionEl.classList.add("question-jp");
       }
       document.getElementById("userInput").placeholder = lang === 'jp'
         ? "思いを入力してEnterを押してください"
@@ -93,11 +96,10 @@
       document.getElementById("userInput").addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
           const reply = responses[lang][Math.floor(Math.random() * responses[lang].length)];
-          const responseEl = document.getElementById("response");
           responseEl.textContent = reply;
+          // Remove and reapply the class to trigger fade-in animation
           responseEl.classList.remove("visible");
-          // Trigger reflow
-          void responseEl.offsetWidth;
+          void responseEl.offsetWidth;  // Force reflow
           responseEl.classList.add("visible");
         }
       });
