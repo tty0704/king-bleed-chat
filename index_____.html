@@ -38,9 +38,7 @@
       .response {
         margin-top: 2rem;
         font-style: italic;
-        font-size: 1.4rem;
-        color: #fff;
-        line-height: 1.6;
+        color: #888;
       }
     </style>
   </head>
@@ -72,7 +70,7 @@
 
       const lang = navigator.language.startsWith('ja') ? 'jp' : 'en';
       document.getElementById("question").textContent = lang === 'jp'
-        ? "血を流す王に、問いかけてみろ。"
+        ? "王として血を流すとは、どういうことか？"
         : "What does it mean to bleed like a king?";
       document.getElementById("userInput").placeholder = lang === 'jp'
         ? "思いを入力してEnterを押してください"
