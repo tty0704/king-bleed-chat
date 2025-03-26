@@ -63,20 +63,8 @@
     </div>
     <script>
       const responses = {
-        en: [
-          "A king bleeds not for glory, but for silence.",
-          "Power isn’t a crown. It’s the cost of carrying it.",
-          "Even kings fall. And when they do, they fall hardest.",
-          "To bleed like a king is to suffer with a smile.",
-          "The throne hides the wounds, but not the pain."
-        ],
-        jp: [
-          "王は声を上げず、沈黙の中で崩れる。",
-          "王冠は、その重さを語らない。",
-          "血を流すのは、民だけじゃない。",
-          "王であるとは、耐え続けることだ。",
-          "誰もが最後には、王の仮面を脱ぐ。"
-        ]
+        en: ['A king bleeds not for glory, but for silence.', 'Power isn’t a crown. It’s the cost of carrying it.', 'Even kings fall. And when they do, they fall hardest.', 'To bleed like a king is to suffer with a smile.', 'The throne hides the wounds, but not the pain.', 'No king rules forever.', 'A king’s silence is louder than a soldier’s scream.', 'The crown fits no one. It bends the head to wear it.', 'Even kings are made of flesh.', 'Every throne is built on stories and blood.', 'The king’s peace is paid in others’ pain.', 'A crown can be forged or stolen, but never earned.', 'He who wears the crown cannot sleep.', 'History remembers the crown, not the man.', 'Kings bleed. That’s how we know they were human.', 'A true king lives and dies alone.', 'The crown weighs most when no one is watching.', 'Silence is the king’s only luxury.', 'A king’s strength is the weight he hides.', 'The kingdom fears what the king won’t say.', 'A king without fear is not a king at all.', 'Even kings dream of being free.', 'The crown burns hotter than fire.', 'Power bends the spine. The crown breaks it.', 'The throne forgives nothing.', 'A king’s war never ends.', 'The king does not weep. His walls do.', 'To be king is to carry every death in silence.', 'Kings are not born. They’re broken into shape.', 'A crown is a question. The king is the answer.', 'The king is dead. Long live the myth.', 'The sword names the king, not the people.', 'Crowns have no heirs—only successors.', 'A king does not bleed in public.', 'The mask of a king grows skin-tight.', 'A king’s victory is always someone else’s loss.', 'To rule is to fall slowly.', 'A kingdom is not a place, but a burden.', 'Every king is a memory waiting to fade.', 'The king’s name is written in ash.', 'A crown demands a price none remember paying.', 'The king sleeps last, and wakes first.', 'Loyalty is earned, but fear is faster.', 'A king’s blood is no different, but costlier.', 'Every king has a grave prepared.', 'A crown casts the longest shadow.', 'A king without scars is unfit to rule.', 'The people crown, the silence dethrones.', 'The king survives, but forgets why.'],
+        jp: ['王は孤独だ。だが孤独でなければ、王ではない。', '玉座に座るには、心を捨てねばならぬ。', '王の沈黙は、時に千の剣に勝る。', '民の夢を喰らい、王は立つ。', '王でいるために、人であることをやめた。', '王は声を上げず、沈黙の中で崩れる。', '王冠は、その重さを語らない。', '血を流すのは、民だけじゃない。', '王であるとは、耐え続けることだ。', '誰もが最後には、王の仮面を脱ぐ。', '王は命じるが、死ぬのはいつも別の誰かだ。', '王よ、鏡を見よ。そこに敵がいる。', '王冠に血はつきものだ。', '王は守られぬ。ただ、見られている。', 'その血は、誰のものだったか。', '王は笑わない。見られているからだ。', '玉座は石だ。座る者が意味を与える。', '王は裁かれない。ただ忘れられる。', '王の涙は、臣民には届かない。', '王は眠れぬ夜を数え、朝を迎える。', '王の言葉は法だが、時に呪いでもある。', '王は生きて、民が死ぬ。それが現実だ。', '王は民の顔を知らぬ。民は王の名を忘れぬ。', '王の正義は、時に暴力の別名だ。', '王の血は赤い。それが唯一の真実だ。', '王のために流れた血は、誰が拭った？', '王はすでに死んでいる。ただ歩いているだけだ。', '王の誇りは、民の沈黙の上に築かれる。', '王は選ばれたのではない。残ったのだ。', '王には自由がない。だからこそ、王なのだ。', '王は王である前に、人であったことを忘れる。', '王を信じる者は、王に裏切られる覚悟を持て。', '王の背後に立つ者が、本当の王かもしれない。', '王は問いかけられない。ただ見つめられる。', '王の冠には、数え切れぬ嘆きが詰まっている。', '王であることは、運命ではなく呪いだ。', '王は民に夢を語る。だが夢は、王に訪れない。', '王の死は、物語の始まりである。', '王に仕える者は、王に殺されるかもしれぬ。', '王の影は、太陽の動きと共に長くなる。', '王は血を流して初めて、王となる。', '王は沈黙の中で叫ぶ。', '王冠は栄光ではない。責め苦だ。', '王にとって、正しさは邪魔だ。', '王に名誉は不要。必要なのは恐れだ。', '王の敵は外に非ず。内に潜む。', '王は偉大な敗者でなければならない。', '王は消え、記憶だけが歩き続ける。', '王の最期は、いつも静かだ。']
       };
 
       const lang = navigator.language.startsWith('ja') ? 'jp' : 'en';
@@ -96,7 +84,6 @@
           const responseEl = document.getElementById("response");
           responseEl.textContent = reply;
           responseEl.classList.remove("visible");
-          // Trigger reflow
           void responseEl.offsetWidth;
           responseEl.classList.add("visible");
         }
