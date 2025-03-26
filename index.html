@@ -97,7 +97,7 @@
         if (event.key === "Enter") {
           const reply = responses[lang][Math.floor(Math.random() * responses[lang].length)];
           responseEl.textContent = reply;
-          // Remove and reapply the class to trigger fade-in animation
+          // Ensure that even rapid presses always trigger fade-in
           responseEl.classList.remove("visible");
           void responseEl.offsetWidth;  // Force reflow
           responseEl.classList.add("visible");
