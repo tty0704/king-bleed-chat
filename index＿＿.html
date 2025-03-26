@@ -18,11 +18,11 @@
         align-items: center;
         height: 100vh;
         padding: 2rem;
-        text-align: center;
       }
       .chat-box {
         width: 100%;
         max-width: 600px;
+        text-align: center;
       }
       .input-box {
         margin-top: 1.5rem;
@@ -44,41 +44,24 @@
   </head>
   <body>
     <div class="chat-box">
-      <h1 id="question">What does it mean to bleed like a king?</h1>
+      <h1>What does it mean to bleed like a king?</h1>
       <div class="input-box">
         <input type="text" id="userInput" placeholder="Type your thoughts and press Enter" />
       </div>
       <div class="response" id="response"></div>
     </div>
     <script>
-      const responses = {
-        en: [
-          "A king bleeds not for glory, but for silence.",
-          "Power isn’t a crown. It’s the cost of carrying it.",
-          "Even kings fall. And when they do, they fall hardest.",
-          "To bleed like a king is to suffer with a smile.",
-          "The throne hides the wounds, but not the pain."
-        ],
-        jp: [
-          "王は声を上げず、沈黙の中で崩れる。",
-          "王冠は、その重さを語らない。",
-          "血を流すのは、民だけじゃない。",
-          "王であるとは、耐え続けることだ。",
-          "誰もが最後には、王の仮面を脱ぐ。"
-        ]
-      };
-
-      const lang = navigator.language.startsWith('ja') ? 'jp' : 'en';
-      document.getElementById("question").textContent = lang === 'jp'
-        ? "王として血を流すとは、どういうことか？"
-        : "What does it mean to bleed like a king?";
-      document.getElementById("userInput").placeholder = lang === 'jp'
-        ? "思いを入力してEnterを押してください"
-        : "Type your thoughts and press Enter";
+      const responses = [
+        "A king bleeds not for glory, but for silence.",
+        "Power isn’t a crown. It’s the cost of carrying it.",
+        "Even kings fall. And when they do, they fall hardest.",
+        "To bleed like a king is to suffer with a smile.",
+        "The throne hides the wounds, but not the pain."
+      ];
 
       document.getElementById("userInput").addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
-          const reply = responses[lang][Math.floor(Math.random() * responses[lang].length)];
+          const reply = responses[Math.floor(Math.random() * responses.length)];
           document.getElementById("response").textContent = reply;
         }
       });
